@@ -1,0 +1,18 @@
+<div *ngFor="let post of posts" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.body }}</p>
+      <p class="card-text">
+        <i class="bi bi-hand-thumbs-up text-success"></i> {{ post.reactions.likes }}
+        <i class="bi bi-hand-thumbs-down text-danger"></i> {{ post.reactions.dislikes }}
+      </p>      
+      <h6>Comments:</h6>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let comment of post.comments" class="list-group-item">
+          <strong>{{ comment.user.username }} ({{ comment.user.fullName }}):</strong> {{ comment.body }}
+          <i class="bi bi-hand-thumbs-up text-success"></i><span class="text-muted">{{ comment.likes }}</span>
+        </li>
+      </ul>      
+    </div>
+  </div>
+  
